@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Package Customizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Travel Package Customizer</div>
+            <div class="nav-links">
+                <a href="#search">Search</a>
+                <a href="#packages">Packages</a>
+                <a href="#bookings">My Bookings</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Search Section -->
+        <section id="search" class="search-section">
+            <h2>Find Your Perfect Travel Package</h2>
+            <form id="searchForm" class="search-form">
+                <div class="form-group">
+                    <input type="text" id="source" placeholder="From (Source)" required>
+                    <input type="text" id="destination" placeholder="To (Destination)" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="departureDate" required>
+                    <input type="number" id="budget" placeholder="Budget (₹)" required>
+                </div>
+                <div class="form-group preferences">
+                    <select id="flightClass">
+                        <option value="economy">Economy Class</option>
+                        <option value="business">Business Class</option>
+                        <option value="first">First Class</option>
+                    </select>
+                    <select id="hotelRating">
+                        <option value="3">3 Star Hotel</option>
+                        <option value="4">4 Star Hotel</option>
+                        <option value="5">5 Star Hotel</option>
+                    </select>
+                    <select id="busType">
+                        <option value="AC">AC Bus</option>
+                        <option value="NonAC">Non-AC Bus</option>
+                        <option value="Sleeper">Sleeper Bus</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">Search Packages</button>
+            </form>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results" class="results-section hidden">
+            <h2>Available Packages</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-sort="price-low">Price: Low to High</button>
+                <button class="filter-btn" data-sort="price-high">Price: High to Low</button>
+                <button class="filter-btn" data-sort="duration">Duration</button>
+            </div>
+            <div id="packageResults" class="package-grid"></div>
+        </section>
+
+        <!-- Bookings Section -->
+        <section id="bookings" class="bookings-section hidden">
+            <h2>My Bookings</h2>
+            <div class="bookings-list"></div>
+        </section>
+
+        <!-- Booking Modal -->
+        <div id="bookingModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Book Package</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="flightSeats">Number of Flight Seats:</label>
+                        <input type="number" id="flightSeats" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hotelRooms">Number of Hotel Rooms:</label>
+                        <input type="number" id="hotelRooms" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="busSeats">Number of Bus Seats:</label>
+                        <input type="number" id="busSeats" min="1" required>
+                    </div>
+                    <div class="booking-summary">
+                        <h3>Booking Summary</h3>
+                        <div id="bookingSummary"></div>
+                        <div class="total-price">
+                            Total: <span id="totalPrice">₹0</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="book-btn">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Travel Package Customizer. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html> 
